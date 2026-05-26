@@ -18,8 +18,8 @@
 
 ## 로컬 개발 환경
 
-- DB 및 외부 의존성: `docker-compose up -d` 로 실행
-- 로컬 전용 설정: `application-local.yml` (gitignored)
+- DB 및 외부 의존성: `docker compose up -d` 로 실행
+- 로컬 전용 설정: `application-local.yml` (.gitignore에 등록)
 - 필요 환경변수: `.env.example`에 키만 명시 (값 없이)
 - 팀원 세팅: `.env.example` 복사 → `.env.local` 생성
 
