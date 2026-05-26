@@ -1,5 +1,7 @@
 # Frontend (Vue/TypeScript) 규칙
 
+> ESLint, Prettier, Vitest 설치 및 설정은 tooling 세팅 시 추가 예정
+
 ## 코드 품질
 
 - **도구**: ESLint + Prettier
