@@ -1,20 +1,19 @@
-# Backend (Kotlin/Gradle) 규칙
+# Backend (Java/Gradle) 규칙
 
 ## 코드 품질
 
-- **도구**: ktlint
-- `./gradlew ktlintCheck` — CI에서 실패 시 빌드 차단
-- `./gradlew ktlintFormat` — 자동 포맷 수정 허용
-- 포맷 위반은 직접 수정하지 말고 `ktlintFormat` 먼저 실행
+- **도구**: Checkstyle (Google Java Style)
+- `./gradlew checkstyleMain` — CI에서 실패 시 빌드 차단
+- config 위치: `config/checkstyle/checkstyle.xml`
+- 위반 발생 시 리포트 확인: `build/reports/checkstyle/`
 
 ## 테스트 커버리지
 
 - **도구**: JaCoCo
 - 전체 커버리지 70% 미만 시 경고 (CI 차단 아님)
 - 커버리지 측정 제외:
-  - `*Application.kt` (진입점)
-  - `*Config.kt` (설정 클래스)
-  - data class
+  - `*Application.java` (진입점)
+  - `*Config.java` (설정 클래스)
 
 ## 로컬 개발 환경
 
@@ -25,8 +24,8 @@
 
 ## 테스트 구조
 
-- 단위 테스트: `src/test/kotlin/com/plaing/{module}/`
-- 픽스처: `src/test/kotlin/com/plaing/fixture/` 패키지에 분리
+- 단위 테스트: `src/test/java/com/plaing/{module}/`
+- 픽스처: `src/test/java/com/plaing/fixture/` 패키지에 분리
 - 통합 테스트: `@SpringBootTest` + `@ActiveProfiles("test")`
 - 테스트 DB: H2 in-memory (`application-test.yml`에 설정)
 - 테스트 격리: `@Transactional` 로 각 테스트 후 롤백

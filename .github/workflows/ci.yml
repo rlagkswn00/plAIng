@@ -31,8 +31,8 @@ jobs:
           key: gradle-${{ hashFiles('backend/**/*.gradle.kts', 'backend/gradle/libs.versions.toml') }}
           restore-keys: gradle-
 
-      - name: Lint (ktlint)
-        run: ./gradlew ktlintCheck
+      - name: Lint (Checkstyle)
+        run: ./gradlew checkstyleMain
 
       - name: Build
         run: ./gradlew build
